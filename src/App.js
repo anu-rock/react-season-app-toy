@@ -22,7 +22,9 @@ class App extends React.Component {
 
   _body() {
     if (this.state.lat && !this.state.errorMsg) {
-      return <SeasonDisplay lat={this.state.lat} />;
+      return (
+        <SeasonDisplay lat={this.state.lat} month={new Date().getMonth()} />
+      );
     } else if (!this.state.lat && this.state.errorMsg) {
       return <Loader message="Please allow access to location" />;
     }
